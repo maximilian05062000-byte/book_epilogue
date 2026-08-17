@@ -42,39 +42,19 @@ body {
     border-right-color: transparent !important;
 }
 
-/* 
-   SMART AMBIENT FULL-BLEED SLIDE 
-   - Background pseudo ::before renders full cover blurred backdrop (0 black bars!)
-   - Foreground renders 100% COMPLETE uncropped image centered crisp & clear!
-*/
+/* DESKTOP BACKGROUND SLIDES */
 .bg-slide {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-size: contain !important;
+    background-size: cover !important;
     background-position: center center !important;
     background-repeat: no-repeat !important;
     opacity: 0;
     transition: opacity 1.2s ease-in-out, transform 6s ease-out;
-    transform: scale(1.01);
-}
-
-/* Ambient blurred background layer filling 100% of space */
-.bg-slide::before {
-    content: '';
-    position: absolute;
-    top: -10%;
-    left: -10%;
-    width: 120%;
-    height: 120%;
-    background-image: inherit;
-    background-size: cover;
-    background-position: center;
-    filter: blur(25px) brightness(0.6) saturate(1.2);
-    -webkit-filter: blur(25px) brightness(0.6) saturate(1.2);
-    z-index: -1;
+    transform: scale(1.02);
 }
 
 .bg-slide.active {
@@ -88,10 +68,10 @@ body {
     letter-spacing: 4px;
     font-size: 0.75rem;
     font-weight: 600;
-    color: rgba(255, 184, 208, 0.7);
+    color: rgba(255, 184, 208, 0.85);
     text-transform: uppercase;
     z-index: 5;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
     transition: opacity 0.6s ease;
 }
 
@@ -102,7 +82,7 @@ body {
 .bg-left .half-label { left: 20px; }
 .bg-right .half-label { right: 20px; }
 
-/* UNIFIED 21ST FULL COVER SLIDE (0 SEAM, FULL SCREEN) */
+/* UNIFIED 21ST FULL COVER SLIDE (0 SEAM, FULL SCREEN, 100% SHARP) */
 .full-cover-slide {
     position: absolute;
     top: 0;
@@ -120,44 +100,24 @@ body {
     pointer-events: none;
 }
 
-.full-cover-slide::before {
-    content: '';
-    position: absolute;
-    top: -10%;
-    left: -10%;
-    width: 120%;
-    height: 120%;
-    background-image: inherit;
-    background-size: cover;
-    background-position: center;
-    filter: blur(25px) brightness(0.5);
-    -webkit-filter: blur(25px) brightness(0.5);
-    z-index: -1;
-}
-
 .full-cover-slide.active {
     opacity: 1;
 }
 
-/* CHERRY-VELVET VIGNETTE WITH DYNAMIC BLUR TOGGLE */
+/* DARK ATMOSPHERIC VIGNETTE OVERLAY */
 .bg-vignette {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at center, rgba(10, 2, 5, 0.02) 0%, rgba(33, 5, 14, 0.35) 100%);
-    backdrop-filter: blur(2px);
-    -webkit-backdrop-filter: blur(2px);
+    background: radial-gradient(circle at center, rgba(10, 2, 5, 0.02) 0%, rgba(33, 5, 14, 0.3) 100%);
     pointer-events: none;
     z-index: 3;
-    transition: backdrop-filter 0.5s ease, -webkit-backdrop-filter 0.5s ease, opacity 0.5s ease;
+    transition: opacity 0.5s ease;
 }
 
-/* WHEN CARD IS HIDDEN: BLUR DISAPPEARS COMPLETELY (0px) */
 .bg-vignette.vignette-clear {
-    backdrop-filter: blur(0px) !important;
-    -webkit-backdrop-filter: blur(0px) !important;
     background: radial-gradient(circle at center, transparent 0%, rgba(10, 2, 5, 0.15) 100%) !important;
 }
 
@@ -389,49 +349,71 @@ body {
     line-height: 1.5;
 }
 
-/* --- MOBILE RESPONSIVE OPTIMIZATIONS --- */
+/* 
+   --- REVOLUTIONARY MOBILE RESPONSIVE DESIGN --- 
+   On Mobile: Stacked 100% Full Width Slides (0% CROPPING & 0% MISSING IMAGE!)
+*/
 @media (max-width: 768px) {
+    .split-bg-container {
+        flex-direction: column;
+    }
+
+    .bg-half {
+        width: 100% !important;
+        height: 50% !important;
+    }
+
+    .bg-left {
+        border-right: none !important;
+        border-bottom: 1.5px solid rgba(230, 64, 114, 0.35);
+    }
+
+    .bg-slide {
+        background-size: cover !important;
+        background-position: center center !important;
+    }
+
     .half-label {
         font-size: 0.65rem;
         letter-spacing: 2px;
-        bottom: 12px;
+        bottom: 8px;
     }
     
-    .bg-left .half-label { left: 8px; }
-    .bg-right .half-label { right: 8px; }
+    .bg-left .half-label { left: 12px; }
+    .bg-right .half-label { right: 12px; }
     
     .main-container {
-        padding: 12px;
+        padding: 10px;
     }
     
     .epilogue-card {
-        padding: 24px 18px 18px 18px;
+        padding: 20px 16px 14px 16px;
         max-height: 94vh;
         border-radius: 20px;
     }
     
     .main-title {
-        font-size: 1.8rem;
+        font-size: 1.7rem;
     }
     
     .intro-quote {
-        font-size: 1.05rem;
+        font-size: 1.0rem;
     }
     
     .author-manifesto {
-        font-size: 0.92rem;
-        line-height: 1.65;
+        font-size: 0.9rem;
+        line-height: 1.6;
         text-align: left;
     }
     
     .start-btn {
         padding: 10px 24px;
-        font-size: 0.9rem;
+        font-size: 0.88rem;
     }
     
     .floating-restore-btn {
-        bottom: 20px;
+        bottom: 16px;
         padding: 10px 24px;
-        font-size: 0.88rem;
+        font-size: 0.85rem;
     }
 }
