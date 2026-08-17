@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Эпилог • Подарок</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=105">
+</head>
+<body>
+
+    <!-- FULLSCREEN WELCOME START READING MODAL OVERLAY -->
+    <div id="welcome-overlay" class="welcome-overlay">
+        <div class="welcome-card">
+            <h1 class="welcome-title">Эпилог • Выбор</h1>
+            <p class="welcome-subtitle">Включите звук для полного погружения в финал истории</p>
+            <div class="divider-rose" style="margin: 20px auto;"></div>
+            <button id="start-reading-btn" class="start-btn" onclick="startReading()">✨ Начать чтение</button>
+        </div>
+    </div>
+
+    <!-- FULL BLEED SPLIT BACKGROUND CONTAINER -->
+    <div class="split-bg-container" id="split-bg-container">
+        <!-- LEFT HALF BACKGROUND: ILLUSTRATIONS -->
+        <div class="bg-half bg-left" id="bg-left">
+            <div class="bg-slide active" id="art-slide-1"></div>
+            <div class="bg-slide" id="art-slide-2"></div>
+            <div class="half-label" id="label-left">ИЛЛЮСТРАЦИИ</div>
+        </div>
+
+        <!-- RIGHT HALF BACKGROUND: REAL PHOTOS -->
+        <div class="bg-half bg-right" id="bg-right">
+            <div class="bg-slide active" id="real-slide-1"></div>
+            <div class="bg-slide" id="real-slide-2"></div>
+            <div class="half-label" id="label-right">РЕАЛЬНОСТЬ</div>
+        </div>
+
+        <!-- FULL-SCREEN UNIFIED 21ST CLIMAX COVER SLIDE (0 SEAM) -->
+        <div class="full-cover-slide" id="full-cover-slide"></div>
+
+        <div class="bg-vignette"></div>
+    </div>
+
+    <!-- Background Audio Element (Nobuo Uematsu - Zanarkand) -->
+    <audio id="bg-audio" loop preload="auto" src="audio/zanarkand.mp3"></audio>
+
+    <!-- CENTER MAIN CONTAINER: Epilogue Card -->
+    <main class="main-container">
+        <div class="epilogue-card" id="epilogue-card">
+            <div class="card-header">
+                <span class="sub-title">ФИНАЛ ИСТОРИИ</span>
+                <h1 class="main-title">Эпилог • Выбор</h1>
+                <div class="divider-rose"></div>
+            </div>
+
+            <div class="epilogue-body">
+                <p class="intro-quote">«Сейчас время выбирать. Умереть и освободиться от боли или жить и бороться со своей печалью...»</p>
+                
+                <div class="custom-text-container">
+                    <p class="author-manifesto">Это мой Магнум-Опус, всего себя я вложил в написание книги, я сделал из нашей жизни то, что пройдет сквозь века, и навсегда останется в истории. Читать её было ни чуть не проще, чем написать, я прекрасно понимаю это и надеюсь ты справилась не пролив много слез. Я не могу с уверенностью сказать что я доволен результатом, конечно, можно было сделать намного лучше, будь у меня более хороший навык в подобном. Все мои грехи навсегда останутся с нами, ничто и никогда их не перечеркнет, это была исповедь о парне, что не мог поменяться в лучшую сторону и потерял из-за этого все. Меняться можно начать всегда, кому то для этого нужна рука помощи, кому то две, а для меня все что было нужно - это непросветная тьма и отчаяние, ничего бы не изменилось останься ты здесь. Теперь все мои мечты совпадают с теми, что были когда-то у тебя. Что будет дальше - решать только тебе, книга сказала за меня больше чем я смог бы когда-либо, будут ли написаны новые главы, или история на этом закончиться - я теперь хочу услышать лично от тебя, послушать твой эпилог, послушать твою историю.</p>
+                </div>
+
+                <div class="text-block">
+                    <p>Эпилог этой истории написан не на бумаге, а в каждом дне, который продолжается дальше. Какое бы решение ни было принято, тепло прошлых дней всегда останется живым в памяти и сердцах.</p>
+                </div>
+            </div>
+
+            <!-- PERFECTLY CENTERED CARD FOOTER BUTTON -->
+            <div class="card-footer-center">
+                <button class="start-btn center-btn" onclick="hideCard(event)">👁️ Скрыть текст</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- FLOATING RESTORE BUTTON WHEN CARD IS HIDDEN -->
+    <button id="show-text-btn" class="start-btn floating-restore-btn hidden-restore" onclick="showCard(event)">📜 Показать текст</button>
+
+    <script src="script.js?v=105"></script>
+</body>
+</html>
