@@ -87,7 +87,8 @@ function updateSlideshow() {
         const nextReal = realImages[currentIndex % realImages.length];
 
         inactiveArt.style.backgroundImage = `url('${nextArt}')`;
-        inactiveArt.style.backgroundSize = 'contain';
+        inactiveArt.style.backgroundSize = 'cover';
+        inactiveArt.style.backgroundPosition = 'center 35%';
         inactiveArt.style.backgroundPosition = 'center center';
         inactiveArt.classList.add('active');
         activeArt.classList.remove('active');
@@ -96,7 +97,8 @@ function updateSlideshow() {
         inactiveArt = tempArt;
 
         inactiveReal.style.backgroundImage = `url('${nextReal}')`;
-        inactiveReal.style.backgroundSize = 'contain';
+        inactiveReal.style.backgroundSize = 'cover';
+        inactiveReal.style.backgroundPosition = 'center 35%';
         inactiveReal.style.backgroundPosition = 'center center';
         inactiveReal.classList.add('active');
         activeReal.classList.remove('active');
