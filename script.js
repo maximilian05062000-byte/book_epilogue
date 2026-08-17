@@ -1,4 +1,4 @@
-// First 20 Split Background Carousel Pairs
+// Complete 20 Background Carousel Pairs
 const artImages = [
     'images/' + encodeURIComponent('photo_2026-08-13_20-18-39_акварель.png'),
     'images/' + encodeURIComponent('photo_2026-08-13_20-19-34_акварель.png'),
@@ -45,6 +45,15 @@ const realImages = [
     'images/' + encodeURIComponent('5.png')
 ];
 
+// PRELOAD ALL IMAGES IN BROWSER MEMORY TO ELIMINATE DESYNC AND LOAD DELAYS
+function preloadAllImages() {
+    [...artImages, ...realImages, 'images/' + encodeURIComponent('обложка_финал.png')].forEach(src => {
+        const img = new Image();
+        img.src = src;
+    });
+}
+preloadAllImages();
+
 let globalSlideIndex = 0;
 const totalSlides = 21; // 20 split pairs + 1 full-screen cover climax
 
@@ -70,7 +79,7 @@ function updateSlideshow() {
         if (fullCoverSlide) fullCoverSlide.classList.add('active');
         if (splitBgContainer) splitBgContainer.classList.add('no-border');
     } else {
-        // FIRST 20 SLIDES: Split 50/50 Pairs (Left Art <-> Right Real Photo)
+        // FIRST 20 SLIDES: Synchronized 50/50 Split Pairs
         if (fullCoverSlide) fullCoverSlide.classList.remove('active');
         if (splitBgContainer) splitBgContainer.classList.remove('no-border');
 
@@ -145,6 +154,6 @@ window.showCard = function(e) {
     if (vignette) vignette.classList.remove('vignette-clear');
 };
 
-// Initialize Background Slideshow
+// Initialize Synchronized Background Slideshow
 updateSlideshow();
 setInterval(updateSlideshow, 5000);
