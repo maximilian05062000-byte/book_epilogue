@@ -30,6 +30,7 @@ body {
     width: 50%;
     height: 100%;
     overflow: hidden;
+    background-color: #0d0307;
     transition: border-color 0.5s ease;
 }
 
@@ -41,18 +42,19 @@ body {
     border-right-color: transparent !important;
 }
 
+/* CONTAIN FIT: 100% FULL IMAGE VISIBILITY WITH ZERO CROPPING */
 .bg-slide {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-size: cover;
-    background-position: center;
+    background-size: contain; /* ZERO CROPPING: ENTIRE IMAGE ALWAYS FULLY VISIBLE */
+    background-position: center center;
     background-repeat: no-repeat;
     opacity: 0;
-    transition: opacity 1.5s ease-in-out, transform 8s ease-out;
-    transform: scale(1.03);
+    transition: opacity 1.5s ease-in-out, transform 6s ease-out;
+    transform: scale(1.02);
 }
 
 .bg-slide.active {
@@ -89,7 +91,7 @@ body {
     height: 100vh;
     background-image: url('images/%D0%BE%D0%B1%D0%BB%D0%BE%D0%B6%D0%BA%D0%B0_%D1%84%D0%B8%D0%BD%D0%B0%D0%BB.png');
     background-size: contain;
-    background-position: center;
+    background-position: center center;
     background-repeat: no-repeat;
     background-color: #0a0205;
     opacity: 0;
@@ -109,7 +111,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at center, rgba(10, 2, 5, 0.05) 0%, rgba(33, 5, 14, 0.45) 100%);
+    background: radial-gradient(circle at center, rgba(10, 2, 5, 0.02) 0%, rgba(33, 5, 14, 0.4) 100%);
     backdrop-filter: blur(2px);
     -webkit-backdrop-filter: blur(2px);
     pointer-events: none;
@@ -121,7 +123,7 @@ body {
 .bg-vignette.vignette-clear {
     backdrop-filter: blur(0px) !important;
     -webkit-backdrop-filter: blur(0px) !important;
-    background: radial-gradient(circle at center, transparent 0%, rgba(10, 2, 5, 0.2) 100%) !important;
+    background: radial-gradient(circle at center, transparent 0%, rgba(10, 2, 5, 0.15) 100%) !important;
 }
 
 /* MAIN CONTAINER & EXPANDED GLASS CARD */
@@ -355,7 +357,7 @@ body {
 /* --- MOBILE RESPONSIVE OPTIMIZATIONS --- */
 @media (max-width: 768px) {
     .bg-slide {
-        background-size: cover;
+        background-size: contain;
         background-position: center center;
     }
     
